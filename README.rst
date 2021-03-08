@@ -14,7 +14,7 @@ Here are the things that easy\_chrome\_driver does well without much
 effort:
 
 -  Setting up proxy using chrome web extension created by
-   ``proxy_driver`` module.
+   ``easy_chrome_driver`` module.
 -  Using username and password for the proxies
 -  Updating the proxy list automatically along with manual addition
 -  Saving user data and session metadata for the reuse of chrome driver
@@ -58,12 +58,14 @@ License
 Documentation
 -------------
 
-**Create instance for proxy\_driver**
+**Create instance for proxy\_driver, update proxies and get driver**
 
 .. code:: sh
 
-    from easy_chrome_driver import proxy_driver
-    p = proxy_driver()
+    from easy_chrome_driver import proxy_driver as pc
+    pc().update_proxies()
+    driver = pc('user_name','password').get_chromedriver(use_proxy=True)
+
 
 ::
 
@@ -73,20 +75,14 @@ Documentation
     Parameters:
 
         PROXY_USER : string, default ''
-            User name for the Proxies in crawled_proxies.json file in proxy_driver folder.
+            User name for the Proxies in proxies.json file in proxy_driver folder.
         PROXY_PASS : string, default - ''
-            Password for the Proxies in crawled_proxies.json file in proxy_driver folder.
+            Password for the Proxies in proxies.json file in proxy_driver folder.
         user_path : string, default './proxy_driver/user_data'
             Path to store user data generated during scrapping.
 
     See also
         proxy_driver.get_chromedriver(), proxy_driver.update_proxies()
-
-**Get chrome driver**
-
-.. code:: sh
-
-    driver = p.get_chromedriver()
 
 ::
 
@@ -96,8 +92,8 @@ Documentation
     Parameters:
 
         use_proxy : bool, default False
-            Use a random proxy selected from 'crawled_proxies.json' file in proxy_driver folder with username and password passed into proxy_driver class.
-            To update the 'crawled_proxies.json' run proxy_driver().update_proxies()
+            Use a random proxy selected from 'proxies.json' file in proxy_driver folder with username and password passed into proxy_driver class.
+            To update the 'proxies.json' run proxy_driver().update_proxies()
             or Manually add the proxy as 'proxy:port':type in the json file. Eg. '172.67.182.48:80':http
 
         save_user_data : boo;, default True
@@ -114,14 +110,16 @@ Documentation
 
 **Update proxies**
 
+This code must be run before the first time use of proxy, else create the json file manually in the proxy_driver folder. Eg. Eg. '172.67.182.48:80':http
+
 .. code:: sh
 
-    p.update_proxies()
+    pc().update_proxies()
 
 ::
 
     update_proxies(self,no_of_pages = 3,driver_path = None)
-        Update the 'crawled_proxies.json' file in the proxy_driver folder with fresh free ips.
+        Update the 'proxies.json' file in the proxy_driver folder with fresh free ips.
         
     Parameters:
 
@@ -140,12 +138,4 @@ Documentation
         proxy_auth_plugin.zip
         proxies.json
         log.txt
-
-Changelog
----------
-
-0.0.1 (08/03/2021)
-------------------
-
--  First release
-
+        

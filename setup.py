@@ -15,7 +15,7 @@ classifiers = [
 ]
  
 setup(
-  name='proxy_driver',
+  name='easy_chrome_driver',
   version='0.0.1',
   description='Abstraction for chrome driver for easy modifications',
   long_description=open('README.rst').read() + '\n\n' + open('CHANGELOG.txt').read(),
@@ -24,7 +24,7 @@ setup(
   author_email='vaibhavkpatel1@gmail.com',
   license='MIT', # note the American spelling
   classifiers=classifiers,
-  keywords='chromedriver webdriver proxydriver easytousewebdriver', # used when people are searching for a module, keywords separated with a space
+  keywords='easy_chromedriver chrome_driver webdriver proxy_driver', # used when people are searching for a module, keywords separated with a space
   packages=find_packages(),
   install_requires= open('requirements.txt','r').readlines() # a list of other Python modules which this module depends on.  For example RPi.GPIO
 )
