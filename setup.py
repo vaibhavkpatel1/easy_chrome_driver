@@ -16,7 +16,7 @@ classifiers = [
  
 setup(
   name='easy_chrome_driver',
-  version='0.0.1',
+  version='0.0.2',
   description='Abstraction for chrome driver for easy modifications',
   long_description=open('README.rst').read() + '\n\n' + open('CHANGELOG.txt').read(),
   url='https://github.com/vaibhavkpatel1/easy_chrome_driver',  # the URL of your package's home page e.g. github link
