@@ -36,10 +36,6 @@ Dependencies
 -  `random-user-agent - Provides list of user agents, from a collection
    of more than 326,000+ user agents, based on
    filters. <https://pypi.org/project/random-user-agent/>`__
--  random
--  zipfile
--  time
--  json
 
 Installation
 ------------
